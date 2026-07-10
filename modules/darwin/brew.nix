@@ -9,17 +9,37 @@
     };
 
     brews = [
+      "yabai"
+      "skhd"
       "lua"
       "ni"
       "ripgrep"
     ];
 
     taps = [
-      "nikitabobko/tap"
-      "felixkratz/formulae"
+      {
+        name = "asmvik/formulae";
+        trusted = true;
+      }
+      {
+        name = "nikitabobko/tap";
+        trusted = true;
+      }
+      {
+        name = "felixkratz/formulae";
+        trusted = true;
+      }
+      {
+        name = "manefunction/tap";
+        trusted = true;
+      }
     ];
 
     casks = [
+      {
+        name = "zed";
+        greedy = true;
+      }
       {
         name = "xcodes-app";
         greedy = true;
@@ -94,6 +114,10 @@
       }
       {
         name = "beekeeper-studio";
+        greedy = true;
+      }
+      {
+        name = "moonlight";
         greedy = true;
       }
     ];
