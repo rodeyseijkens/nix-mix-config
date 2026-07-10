@@ -24,7 +24,6 @@
     yt-dlp-light # audio/video downloader
     imagemagick # image manipulation
     viu # terminal image viewer
-    mpv # media player
     jq # JSON processor
     onefetch # git repository information
 
