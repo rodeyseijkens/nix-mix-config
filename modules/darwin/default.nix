@@ -5,6 +5,5 @@
   brew = import ./brew.nix;
   yabai = import ./yabai.nix;
   skhd = import ./skhd.nix;
-  spacebar = import ./spacebar.nix;
   simple-bar = import ./simple-bar.nix;
 }
