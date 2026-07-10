@@ -7,7 +7,6 @@
     herdr.enable = true;
 
     vscode.enable = true;
-    zed-editor.enable = true;
     worktrunk.enable = true;
 
     spicetify.enable = true;
