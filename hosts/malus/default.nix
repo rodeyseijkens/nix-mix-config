@@ -24,5 +24,6 @@
   core = {
     yabai.enable = true;
     skhd.enable = true;
+    simple-bar.enable = true;
   };
 }
