@@ -1,11 +1,16 @@
 {
   lib,
   config,
+  pkgs,
   vars,
   ...
-}:
+ }:
 with lib; let
   cfg = config.core.yabai;
+  simpleBarEnabled = config.core.simple-bar.enable;
+  yabaiPackage = pkgs.writeShellScriptBin "yabai" ''
+    exec /opt/homebrew/bin/yabai "$@"
+  '';
 in {
   options.core.yabai = {
     enable =
@@ -36,12 +41,13 @@ in {
 
     services.yabai = {
       enable = true;
+      package = yabaiPackage;
       enableScriptingAddition = true;
       config =
         {
+          # simple-bar expects yabai's external bar reservation so windows do not overlap it.
           focus_follows_mouse = "off";
           mouse_follows_focus = "off";
-          external_bar = "all:24:0";
           window_placement = "second_child";
           window_opacity = "on";
           window_opacity_duration = "0.0";
@@ -62,19 +68,24 @@ in {
           right_padding = 10;
           window_gap = 10;
         }
+        // optionalAttrs simpleBarEnabled {
+          external_bar = "all:24:0";
+        }
         // cfg.config;
       extraConfig =
         ''
-          yabai -m space 1 --label "1"
-          yabai -m space 2 --label "2"
-          yabai -m space 3 --label "3"
-          yabai -m space 4 --label "4"
-          yabai -m space 5 --label "5"
-          yabai -m space 6 --label "6"
-          yabai -m space 7 --label "7"
-          yabai -m space 8 --label "8"
-          yabai -m space 9 --label "9"
-          yabai -m space 10 --label "10"
+          ${optionalString simpleBarEnabled "osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh'"}
+
+          yabai -m space 1 --label "I"
+          yabai -m space 2 --label "II"
+          yabai -m space 3 --label "III"
+          yabai -m space 4 --label "IV"
+          yabai -m space 5 --label "V"
+          yabai -m space 6 --label "VI"
+          yabai -m space 7 --label "VII"
+          yabai -m space 8 --label "VIII"
+          yabai -m space 9 --label "IX"
+          yabai -m space 10 --label "X"
 
           yabai -m rule --add app="^kitty$" space=10 manage=on
           yabai -m rule --add app="^Ghostty$" space=10 manage=on
