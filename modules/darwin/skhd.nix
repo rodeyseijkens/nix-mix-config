@@ -76,7 +76,8 @@ in {
           cmd - return : open -n "/Users/rodeyseijkens/Applications/Home Manager Trampolines/Ghostty.app"
           cmd + shift - return : open -n "/Users/rodeyseijkens/Applications/Home Manager Trampolines/Ghostty.app"
           cmd - e : open -n "/Applications/QSpace Pro.app"
-          cmd - b : open -n "/Users/rodeyseijkens/Applications/Home Manager Trampolines/Zen Browser (Beta).app"
+          cmd - b : google-chrome --profile-directory="Default" --new-window
+          cmd + shift - b : open -n "/Users/${vars.username}/Applications/Home Manager Apps/Zen Browser (Beta).app"
 
           # Close window
           cmd - q : yabai -m window --close
