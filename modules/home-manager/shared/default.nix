@@ -8,6 +8,7 @@
     ./fzf.nix
     ./git.nix
     ./ghostty.nix
+    ./herdr.nix
     ./legcord
     ./llm.nix
     ./micro.nix
