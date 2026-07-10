@@ -18,6 +18,7 @@
     ./packages.nix
     ./spicetify.nix
     ./ssh.nix
+    ./simple-bar.nix
     ./stylix.nix
     ./tigervnc.nix
     ./ubersicht.nix
