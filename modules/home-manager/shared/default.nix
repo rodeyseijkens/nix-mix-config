@@ -20,6 +20,7 @@
     ./ssh.nix
     ./stylix.nix
     ./tigervnc.nix
+    ./ubersicht.nix
     ./vscode
     ./worktrunk.nix
     ./zed-editor.nix
