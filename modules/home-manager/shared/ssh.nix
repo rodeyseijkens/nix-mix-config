@@ -8,29 +8,29 @@ in {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks =
-      if (system != "aarch64-darwin")
-      then {
+    settings =
+      {
         "*" = {
-          addKeysToAgent = "yes";
-          serverAliveInterval = 60;
-        };
-        "github.com" = {
-          hostname = "github.com";
-          user = "rodeyseijkens";
-          identityFile = "${home}/.ssh/id_personal";
+          AddKeysToAgent = "yes";
+          ServerAliveInterval = 60;
         };
       }
-      else {
-        "*" = {
-          addKeysToAgent = "yes";
-          serverAliveInterval = 60;
-        };
-        "github.com-personal" = {
-          hostname = "github.com";
-          user = "rodeyseijkens";
-          identityFile = "${home}/.ssh/id_personal";
-        };
-      };
+      // (
+        if (system != "aarch64-darwin")
+        then {
+          "github.com" = {
+            Hostname = "github.com";
+            User = "rodeyseijkens";
+            IdentityFile = "${home}/.ssh/id_personal";
+          };
+        }
+        else {
+          "github.com-personal" = {
+            Hostname = "github.com";
+            User = "rodeyseijkens";
+            IdentityFile = "${home}/.ssh/id_personal";
+          };
+        }
+      );
   };
 }
